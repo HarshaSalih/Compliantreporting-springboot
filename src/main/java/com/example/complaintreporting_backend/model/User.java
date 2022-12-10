@@ -1,11 +1,11 @@
-package com.example.onlinereportcomplaining_backend.model;
+package com.example.complaintreporting_backend.model;
 
 import jakarta.persistence.*;
 
 @Entity
 @Table(name="OnlineReportComplaining")
 
-public class OnlineReportComplaining {
+public class User {
 
 
     @Id
@@ -18,10 +18,10 @@ public class OnlineReportComplaining {
     private String username;
     private String password;
 
-    public OnlineReportComplaining() {
+    public User() {
     }
 
-    public OnlineReportComplaining(int id, String name, String address, String phone, String email, String username, String password) {
+    public User(int id, String name, String address, String phone, String email, String username, String password) {
         this.id = id;
         this.name = name;
         this.address = address;
