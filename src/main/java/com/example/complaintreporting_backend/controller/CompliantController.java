@@ -2,6 +2,7 @@ package com.example.complaintreporting_backend.controller;
 
 import com.example.complaintreporting_backend.dao.CompliantDao;
 import com.example.complaintreporting_backend.model.Complaints;
+import com.example.complaintreporting_backend.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -33,10 +34,20 @@ public class CompliantController {
         return (List<Map<String, String>>) dao1.compliants();
     }
 
+//    @CrossOrigin(origins = "*")
+//    @GetMapping(path = "/viewMyCompliant")
+//    public List<Complaints> ViewMyCompliant(@RequestBody Integer userId)
+//    {
+//        return (List<Complaints>) dao1.findAllByUserId(userId);
+//    }
+
     @CrossOrigin(origins = "*")
-    @GetMapping(path = "/viewMyCompliant")
-    public List<Complaints> ViewMyCompliant()
+    @PostMapping(path="/viewMyCompliant",consumes = "application/json",produces = "application/json")
+    public List<Complaints>viewMyCompliant(@RequestBody Complaints c)
     {
-        return (List<Complaints>) dao1.findAllByUserId(1);
+        System.out.println(c.getUserId());
+        return (List<Complaints>) dao1.viewMyCompliant(c.getUserId());
     }
+
+
 }
