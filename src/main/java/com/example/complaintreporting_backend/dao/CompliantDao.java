@@ -11,4 +11,8 @@ public interface CompliantDao extends CrudRepository <Complaints,Integer> {
 
     @Query(value = "SELECT u.`address`, u.`email`, u.`name`,  u.`phone`,c.complaints FROM `online_report_complaining` u JOIN complaints c ON c.user_id=u.id",nativeQuery = true)
     List<Map<String,String>>compliants();
+
+    List <Complaints> findAllByUserId(Integer userId);
+
+
 }
