@@ -32,4 +32,11 @@ public class CompliantController {
     {
         return (List<Map<String, String>>) dao1.compliants();
     }
+
+    @CrossOrigin(origins = "*")
+    @GetMapping(path = "/viewMyCompliant")
+    public List<Complaints> ViewMyCompliant()
+    {
+        return (List<Complaints>) dao1.findAllByUserId(1);
+    }
 }
